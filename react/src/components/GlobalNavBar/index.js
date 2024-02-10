@@ -5,8 +5,8 @@ const GlobalNavBar = (props) => {
     return <div>
         <Navbar className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand>Notes App</Navbar.Brand>
-
+                <Navbar.Brand>GeoJobSearch</Navbar.Brand>
+                
                 <div>
                     {props.pageName}
                 </div>

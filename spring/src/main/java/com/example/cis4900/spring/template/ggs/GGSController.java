@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/ggs")
+@RequestMapping(path = "/api/ggs")
 public class GGSController {
     // private DummyService dummyService;
 

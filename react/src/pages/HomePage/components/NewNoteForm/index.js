@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 const NewNoteForm = (props) => {
     return <div>
         <Row>
-            <h2>New Note</h2>
+            <h2>Cataract</h2>
         </Row>
         <Row>
         <Stack direction="horizontal" gap={3}>

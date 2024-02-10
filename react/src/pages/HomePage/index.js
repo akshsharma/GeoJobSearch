@@ -6,9 +6,11 @@ import ErrorAlert from '../../components/ErrorAlert';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import EditNoteModal from './components/EditNoteModal';
 import GlobalNavBar from '../../components/GlobalNavBar';
+import JobInfo from './components/JobInfo';
 
 
 const HomePage = () => {
+    const [jobs, setJobs] = useState([]);
     const [notes, setNotes] = useState([]);
     const [count, setCount] = useState(0);
     const [newNote, setNewNote] = useState('');
@@ -22,6 +24,7 @@ const HomePage = () => {
     useEffect(() => {
         fetchCount();
         fetchAllNotes();
+        fetchJobInfo();
     }, [])
 
 
@@ -30,6 +33,21 @@ const HomePage = () => {
             throw new Error('Something Went Wrong');
         }
         return res;
+    }
+
+    const fetchJobInfo = () => {
+        setLoading(true);
+        fetch('api/ggs/dummyData')
+            .then(status)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .then(data => {
+                setJobs(data);
+                setLoading(false);
+            }).catch(error => {
+                setErrorMessage(error.message);
+                setError(true);
+            });
     }
 
     const fetchAllNotes = () => {
@@ -51,6 +69,7 @@ const HomePage = () => {
         fetch('/api/notes/count')
             .then(status)
             .then(res => res.json())
+            .then(data => console.log(data))
             .then(data => {
                 setCount(data);
                 setLoadingCount(false);
@@ -126,26 +145,47 @@ const HomePage = () => {
 
     return(
         <div>
-            <GlobalNavBar pageName='Home'/>
+            <GlobalNavBar pageName='GeoJobSearch'/>
             <Container>
                 {error ? 
                     <ErrorAlert errorMessage={errorMessage} onClose={() => setError(false)} />
                     :
                     <div></div>
                 }
-                <NewNoteForm value={newNote} onChange={setNewNote} onSubmit={addNewNote} />
-                <br />
-                {loading || loadingCount ? 
+                {jobs[0]}
+                {/*loading || loadingCount ? 
                     <LoadingSpinner />
                     : 
                     <div>
-                        <NotesList list={notes} count={count} onEdit={triggerEditModal} onDelete={deleteNote}/>
+                        <JobInfo list={jobs}/>
                     </div>
-                }
+            */}
             </Container>
-            <EditNoteModal note={noteToEdit} show={showEdit} onClose={editClose} onSave={editNote} />
         </div>
     )
+
+    // return(
+    //     <div>
+    //         <GlobalNavBar pageName='Home'/>
+    //         <Container>
+    //             {error ? 
+    //                 <ErrorAlert errorMessage={errorMessage} onClose={() => setError(false)} />
+    //                 :
+    //                 <div></div>
+    //             }
+    //             <NewNoteForm value={newNote} onChange={setNewNote} onSubmit={addNewNote} />
+    //             <br />
+    //             {loading || loadingCount ? 
+    //                 <LoadingSpinner />
+    //                 : 
+    //                 <div>
+    //                     <NotesList list={notes} count={count} onEdit={triggerEditModal} onDelete={deleteNote}/>
+    //                 </div>
+    //             }
+    //         </Container>
+    //         <EditNoteModal note={noteToEdit} show={showEdit} onClose={editClose} onSave={editNote} />
+    //     </div>
+    // )
 }
 
 export default HomePage;
