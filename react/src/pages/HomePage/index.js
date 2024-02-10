@@ -40,8 +40,8 @@ const HomePage = () => {
         fetch('api/ggs/dummyData')
             .then(status)
             .then(res => res.json())
-            .then(data => console.log(data))
             .then(data => {
+                console.log(data);
                 setJobs(data);
                 setLoading(false);
             }).catch(error => {
@@ -152,14 +152,13 @@ const HomePage = () => {
                     :
                     <div></div>
                 }
-                {jobs[0]}
-                {/*loading || loadingCount ? 
+                {loading || loadingCount ? 
                     <LoadingSpinner />
                     : 
                     <div>
                         <JobInfo list={jobs}/>
                     </div>
-            */}
+            }
             </Container>
         </div>
     )
