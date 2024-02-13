@@ -6,6 +6,7 @@ import ErrorAlert from '../../components/ErrorAlert';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import EditNoteModal from './components/EditNoteModal';
 import GlobalNavBar from '../../components/GlobalNavBar';
+import './homepage.css';
 
 
 const HomePage = () => {
@@ -126,7 +127,9 @@ const HomePage = () => {
 
     return(
         <div>
-            <GlobalNavBar pageName='Home'/>
+            <div>
+                <GlobalNavBar pageName='Employers / Post Job'/>
+            </div>
             <Container>
                 {error ? 
                     <ErrorAlert errorMessage={errorMessage} onClose={() => setError(false)} />
@@ -143,7 +146,7 @@ const HomePage = () => {
                     </div>
                 }
             </Container>
-            <EditNoteModal note={noteToEdit} show={showEdit} onClose={editClose} onSave={editNote} />
+            <EditNoteModal note={noteToEdit} show={showEdit} onClose={editClose} onSave={editNote}/>
         </div>
     )
 }

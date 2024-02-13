@@ -7,10 +7,10 @@ import Button from 'react-bootstrap/Button';
 const NotesList = (props) => {
     return <div>
         <Row>
-            <h2>Note List ({props.count})</h2>
+            <h2>Posted Job Offers ({props.count})</h2>
         </Row>
         {props.list.length === 0 ? 
-            <Alert variant='info'>List is empty</Alert>
+            <Alert variant='info'>No Job Offers Posted</Alert>
             :
             <Row>
                 <Stack gap={2}>
@@ -20,8 +20,8 @@ const NotesList = (props) => {
                                 <Card.Body>
                                     <Stack direction="horizontal" gap={1}>
                                         <div className="p-2">{note.text}</div>
-                                        <div className="p-2 ms-auto"><Button variant='danger' onClick={() => props.onDelete(note.id)}>Delete</Button></div>
-                                        <div className="p-2"><Button onClick={() => props.onEdit(note)}>Edit</Button></div>
+                                        <div className="p-2 ms-auto"><Button onClick={() => props.onEdit(note)}>Edit</Button></div>
+                                        <div className="p-2"><Button variant='danger' onClick={() => props.onDelete(note.id)}>Delete</Button></div>
                                     </Stack>
                                 </Card.Body>
                             </Card>
