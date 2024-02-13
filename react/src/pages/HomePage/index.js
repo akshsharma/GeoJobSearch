@@ -158,7 +158,7 @@ const HomePage = () => {
                     <div>
                         <JobList list={jobs}/>
                     </div>
-            }
+                }
             </Container>
         </div>
     )

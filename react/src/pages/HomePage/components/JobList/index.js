@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
+import JobPanel from '../JobPanel';
 
 const JobList = (props) => {
     console.log(props);
@@ -15,28 +16,19 @@ const JobList = (props) => {
             :
             <Row>
                  <Stack gap={2}>
-                     {/*props.list.map(line => {
+                     {props.list.jobs.map(item => {
                         return (
-                            <Card key={line} bg="dark" text='white'>
+                            <Card key={item.job.job_id} bg="dark" text='white'>
                                 <Card.Body>
                                     <Stack direction="horizontal" gap={1}>
-                                        <div className="p-2">{line}</div>
+                                        <JobPanel listEntry={item}></JobPanel>
                                     </Stack>
                                 </Card.Body>
                             </Card>
                         );
-                    }) */}
+                    })}
                 </Stack>
             </Row>
-        }
-        {
-            <Row>
-            <div>Job Title: Software Developer</div>
-            <div>Company: Ascencion Automation Solutions Ltd.</div>
-            <div>Location: Cambridge, ON</div>
-            <div>Salary: $36-$46 an hour</div>
-            <div>Hours: Full Time</div>
-        </Row>
         }
 
     </div>
