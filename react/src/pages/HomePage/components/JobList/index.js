@@ -4,18 +4,18 @@ import Row from 'react-bootstrap/Row';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 
-const JobInfo = (props) => {
+const JobList = (props) => {
     console.log(props);
     return <div>
-        <Row>This is where the job info will go.</Row>
-        <div>{props.list}</div>
+        <Row>This is where the job list will go.</Row>
+        <div></div>
         {
             props.list.length === 0 ?
             <Alert variant='info'>List is empty</Alert>
             :
             <Row>
                  <Stack gap={2}>
-                     {props.list.map(line => {
+                     {/*props.list.map(line => {
                         return (
                             <Card key={line} bg="dark" text='white'>
                                 <Card.Body>
@@ -25,7 +25,7 @@ const JobInfo = (props) => {
                                 </Card.Body>
                             </Card>
                         );
-                    })}
+                    }) */}
                 </Stack>
             </Row>
         }
@@ -68,4 +68,4 @@ const JobInfo = (props) => {
     // </div>
 }
 
-export default JobInfo;
+export default JobList;

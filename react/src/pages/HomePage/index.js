@@ -6,7 +6,7 @@ import ErrorAlert from '../../components/ErrorAlert';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import EditNoteModal from './components/EditNoteModal';
 import GlobalNavBar from '../../components/GlobalNavBar';
-import JobInfo from './components/JobInfo';
+import JobList from './components/JobList';
 
 
 const HomePage = () => {
@@ -24,7 +24,7 @@ const HomePage = () => {
     useEffect(() => {
         fetchCount();
         fetchAllNotes();
-        fetchJobInfo();
+        fetchJobList();
     }, [])
 
 
@@ -35,9 +35,9 @@ const HomePage = () => {
         return res;
     }
 
-    const fetchJobInfo = () => {
+    const fetchJobList = () => {
         setLoading(true);
-        fetch('api/ggs/dummyData')
+        fetch('api/ggs/hardCodedJSON')
             .then(status)
             .then(res => res.json())
             .then(data => {
@@ -156,7 +156,7 @@ const HomePage = () => {
                     <LoadingSpinner />
                     : 
                     <div>
-                        <JobInfo list={jobs}/>
+                        <JobList list={jobs}/>
                     </div>
             }
             </Container>
