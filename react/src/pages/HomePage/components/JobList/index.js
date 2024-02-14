@@ -8,17 +8,17 @@ import JobPanel from '../JobPanel';
 const JobList = (props) => {
     console.log(props);
     return <div>
-        <Row>This is where the job list will go.</Row>
-        <div></div>
+        <h1>My Job Feed</h1>
+        <p>This is where the list of jobs will go.</p>
         {
             props.list.length === 0 ?
-            <Alert variant='info'>List is empty</Alert>
+            <Alert variant='info'>No jobs are available in your area</Alert>
             :
             <Row>
                  <Stack gap={2}>
                      {props.list.jobs.map(item => {
                         return (
-                            <Card key={item.job.job_id} bg="dark" text='white'>
+                            <Card key={item.job.job_id} bg="white" text="#282c3">
                                 <Card.Body>
                                     <Stack direction="horizontal" gap={1}>
                                         <JobPanel listEntry={item}></JobPanel>

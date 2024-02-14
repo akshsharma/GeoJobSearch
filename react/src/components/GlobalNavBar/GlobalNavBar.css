@@ -1,0 +1,28 @@
+/* The navigation bar's title called 'GeoJobSearch' is bolded, white, and aligned */
+.geoJobSearch-title {
+    font-weight: bold;
+    color: white;
+    margin-bottom: -1vh;
+}
+
+/* The navigation bar's logo is shifted from the title */
+.geoJobSearch-logo {
+    margin-right: 5px;
+}
+
+/* Makes sure that any other texts on this page are white */
+.bg-body-tertiary {
+    color: white;
+}
+
+/* The navigation bar's selected tab is underlined */
+.geoJobSearch-selected {
+    border-bottom: 3px solid #61DBFB;
+}
+
+/* The navigation bar itself is black with white text */
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom, #282c34 0, #282c34 100%);
+    color: white;
+}
