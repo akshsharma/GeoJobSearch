@@ -7,7 +7,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import EditNoteModal from './components/EditNoteModal';
 import GlobalNavBar from '../../components/GlobalNavBar';
 import JobList from './components/JobList';
-
+import './HomePage.css';
 
 const HomePage = () => {
     const [jobs, setJobs] = useState([]);
@@ -145,7 +145,7 @@ const HomePage = () => {
 
     return(
         <div>
-            <GlobalNavBar pageName='GeoJobSearch'/>
+            <GlobalNavBar pageName='Job Feed'/>
             <Container>
                 {error ? 
                     <ErrorAlert errorMessage={errorMessage} onClose={() => setError(false)} />
@@ -155,7 +155,7 @@ const HomePage = () => {
                 {loading || loadingCount ? 
                     <LoadingSpinner />
                     : 
-                    <div>
+                    <div className="geoJobSearch-JobList">
                         <JobList list={jobs}/>
                     </div>
                 }

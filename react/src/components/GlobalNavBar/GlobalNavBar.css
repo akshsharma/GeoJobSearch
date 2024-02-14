@@ -1,0 +1,23 @@
+.geoJobSearch-title {
+    font-weight: bold;
+    color: white;
+    margin-bottom: -1vh;
+}
+
+.geoJobSearch-logo {
+    margin-right: 5px;
+}
+
+.bg-body-tertiary {
+    color: white;
+}
+
+.geoJobSearch-selected {
+    border-bottom: 3px solid #61DBFB;
+}
+
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom, #282c34 0, #282c34 100%);
+    color: white;
+}
