@@ -126,7 +126,7 @@ const HomePage = () => {
 
     return(
         <div>
-            <GlobalNavBar pageName='Home'/>
+            <GlobalNavBar pageName='Job Feed'/>
             <Container>
                 {error ? 
                     <ErrorAlert errorMessage={errorMessage} onClose={() => setError(false)} />
