@@ -1,21 +1,18 @@
 use template_db;
 
-create table if not exists note
-(
-    id int auto_increment comment 'Primary Key'
-        primary key,
-    text varchar(255) null
+CREATE TABLE IF NOT EXISTS employers(
+    employer_id INT AUTO_INCREMENT PRIMARY KEY,
+    employer_name TEXT NOT NULL,
 );
 
-create table if not exists dummyTable(
-    id int auto_increment primary key,
-    some_string varchar(255) null
+CREATE TABLE IF NOT EXISTS(
+    job_id INT AUTO_INCREMENT PRIMARY KEY,
+    job_title TEXT NOT NULL,
+    job_description TEXT NOT NULL,
+    job_location TEXT NOT NULL,
+    job_salaray_min DECIMAL(10, 2) NOT NULL,
+    job_salaray_max DECIMAL(10, 2) NOT NULL,
+    employer_id INT NOT NULL, 
+    FOREIGN KEY (employer_id) REFERENCES employers(employer_id)
 );
-
-if (not exists (select * from dummyTable))
-begin
-    insert into dummyTable ("First String");
-    insert into dummyTable ("Second String");
-    insert into dummyTable ("Third String");
-end
 
