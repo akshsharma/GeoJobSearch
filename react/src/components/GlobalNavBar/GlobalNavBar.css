@@ -1,10 +1,16 @@
 
 .geoJobSearch-title {
     font-weight: bold;
-    color: #282c34;
+    color: white;
     margin-bottom: -1vh;
 }
 
 .geoJobSearch-logo {
     margin-right: 5px;
+}
+
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom, #282c34 0, #282c34 100%) !important;
+    color: white;
 }

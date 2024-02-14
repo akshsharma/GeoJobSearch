@@ -1,6 +1,7 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import Stack from 'react-bootstrap/Stack';
 import './GlobalNavBar.css';
 import logo from './logo.png';
 
@@ -23,9 +24,12 @@ const GlobalNavBar = (props) => {
                     </p>
                 </Navbar.Brand>
 
-                <div>
-                    {props.pageName}
-                </div>
+                <Stack direction="horizontal" gap={2}>
+                    <div className="geoJobSearch-logo">
+                        {props.pageName1}
+                    </div>
+                    {props.pageName2}
+                </Stack>
             </Container>
         </Navbar>
     </div>

@@ -128,7 +128,7 @@ const HomePage = () => {
     return(
         <div>
             <div>
-                <GlobalNavBar pageName='Employers / Post Job'/>
+                <GlobalNavBar pageName1='Employers / Post Job' pageName2='Job Feed'/>
             </div>
             <Container>
                 {error ? 
