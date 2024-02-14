@@ -1,3 +1,7 @@
+# We made a mistake!
+
+We accidentally created a second branch where there should only be one. I'm kinda scared to delete stuff on gitlab, so we decided to just leave it where it is and ignore it. Hopefully this is fine.
+
 # CIS*3760 Project Template
 
 This project will serve as a guide on how to setup a three part application that includes a Spring server, a SQL database and a React frontend both locally and on a Kubernetes host.
