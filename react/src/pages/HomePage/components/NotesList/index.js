@@ -10,7 +10,7 @@ const NotesList = (props) => {
             <h2>Note List ({props.count})</h2>
         </Row>
         {props.list.length === 0 ? 
-            <Alert variant='info'>List is empty</Alert>
+            <Alert variant='info'>List blank empty</Alert>
             :
             <Row>
                 <Stack gap={2}>

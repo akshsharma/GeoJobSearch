@@ -13,5 +13,3 @@ docker compose up
 This will setup the app and you can access the following addresses on your browser:
 - React frontend = http://localhost:3000
 - Spring backend = http://localhost:8080/api (add **/docs.html** to access Swagger UI)
-
-
