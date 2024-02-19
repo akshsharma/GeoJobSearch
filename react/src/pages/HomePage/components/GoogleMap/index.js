@@ -9,8 +9,8 @@ const containerStyle = {
 
 /* controls the default location of the Google map (currently located at UoG) */
 const center = {
-  lat: 43.544805,
-  lng: -80.248167
+  lat: 43.5305,
+  lng: -80.2263
 };
 
 function MyComponent() {
