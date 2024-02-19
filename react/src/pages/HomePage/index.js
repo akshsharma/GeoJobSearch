@@ -28,7 +28,6 @@ const HomePage = () => {
         fetchJobList();
     }, [])
 
-
     const status = (res) => {
         if (!res.ok) {
             throw new Error('Something Went Wrong');

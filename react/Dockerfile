@@ -10,7 +10,7 @@ COPY package-lock.json package-lock.json
 # Run `npm ci` to install project dependencies
 RUN npm ci
 
-# Run the google maps API (requires React v16.6)
+# Run the Google maps API (requires React v16.6)
 RUN npm i -S @react-google-maps/api
 
 # Set environment variables
