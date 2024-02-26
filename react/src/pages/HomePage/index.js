@@ -6,6 +6,7 @@ import ErrorAlert from '../../components/ErrorAlert';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import EditNoteModal from './components/EditNoteModal';
 import GlobalNavBar from '../../components/GlobalNavBar';
+import GoogleMap from './components/GoogleMap';
 import JobList from './components/JobList';
 import './HomePage.css';
 
@@ -156,9 +157,14 @@ const HomePage = () => {
                 }
                 {loading || loadingCount ? 
                     <LoadingSpinner />
-                    : 
-                    <div className="geoJobSearch-JobList">
-                        <JobList list={jobs}/>
+                    :
+                    <div>
+                        <div className="geoJobSearch-JobList">
+                            <JobList list={jobs}/>
+                        </div>
+                        <div className="geoJobSearch-GoogleMap">
+                            <GoogleMap/>
+                        </div>
                     </div>
                 }
             </Container>
