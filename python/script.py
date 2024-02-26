@@ -31,6 +31,12 @@ def process_text_files(directory, connection):
                 print(f"Error processing {filepath}: {e}")
                 # Rollback in case of error
                 connection.rollback()
+    
+def test_database_query(cursor):
+    """Try to get something from the database"""
+    query = "SELECT COUNT(*) FROM employers"
+    result = cursor.execute(query)
+    print(f"Number of employers: {result}")
 
 # Environment variables for MySQL database connection details
 db_host = os.getenv('DB_HOST', 'localhost')
@@ -48,8 +54,10 @@ db_config = {
 try:
     print(f"Hello from python script")
     # Connect to the database
-    # connection = mysql.connector.connect(**db_config)
-    # cursor = connection.cursor()
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    test_database_query(cursor)
     
     # Specify the directory where the text files are located
     # directory = "import"
