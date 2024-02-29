@@ -1,0 +1,11 @@
+/* Aligns the page's spacing to look more even */
+.geoJobSearch-joblist {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+
+/* Aligns the map to the center, and properly spaces it */
+.geoJobSearch-GoogleMap {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
