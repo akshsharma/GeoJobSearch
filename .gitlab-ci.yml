@@ -44,7 +44,7 @@ test_python:
   image: python:3.9
   # Script to execute for the test stage
   script:
-    - cd python
+    - cd web-scraper
     # Install dependencies
     - pip install -r requirements.txt
     # Run pytest

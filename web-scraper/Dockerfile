@@ -8,7 +8,8 @@ WORKDIR /usr/app/
 RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron
 
 # Copy the Python script and the cron job file into the container
-COPY script.py .
+COPY indeed-scrape.py .
+COPY todo-cron .
 
 
 # These next lines set up a cron job to
