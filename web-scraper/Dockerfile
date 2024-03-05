@@ -8,6 +8,7 @@ WORKDIR /app
 RUN python3 -m pip install beautifulsoup4
 RUN python3 -m pip install selenium
 RUN python3 -m pip install webdriver-manager
+RUN python3 -m pip install pytest
 
 # Copy the rest of the application code to the working directory
 COPY . .
