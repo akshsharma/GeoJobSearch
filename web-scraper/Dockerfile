@@ -13,6 +13,7 @@ RUN pip install -r requirements.txt
 
 # Copy the Python script and the cron job file into the container
 # Also copy the test files and the web scraper output
+# We have to copy in the test files manually for now... I'd like to change that
 COPY indeed-scrape.py .
 COPY todo-cron .
 COPY test_indeed.py .
