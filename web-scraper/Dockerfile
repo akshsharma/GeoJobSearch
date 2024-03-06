@@ -5,8 +5,9 @@ FROM python:3.9-slim
 WORKDIR /usr/app/
 
 # Install mysql-connector-python and cron
+COPY requirements.txt .
 RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt 
 
 # Copy the Python script and the cron job file into the container
 COPY indeed-scrape.py .
