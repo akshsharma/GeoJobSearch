@@ -4,12 +4,20 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /usr/app/
 
+# Copy in requirements.txt
+COPY requirements.txt .
+
 # Install mysql-connector-python and cron
-RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron && pip install BeautifulSoup4
+RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron
+RUN pip install -r requirements.txt
 
 # Copy the Python script and the cron job file into the container
+# Also copy the test files and the web scraper output
 COPY indeed-scrape.py .
 COPY todo-cron .
+COPY test_indeed.py .
+COPY simple_test.py .
+COPY indeed_job_listings.json .
 
 
 # These next lines set up a cron job to
