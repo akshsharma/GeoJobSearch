@@ -49,6 +49,10 @@ test_python:
     - pip install -r requirements.txt
     # Run pytest
     - pytest
+    # Run pytest with coverage
+    - coverage run -m pytest
+    # Display coverage test results
+    - coverage report
   # Ensure that the pipeline fails if any errors occur during testing
   rules:
     - when: always
