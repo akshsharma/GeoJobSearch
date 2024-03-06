@@ -6,6 +6,7 @@ WORKDIR /usr/app/
 
 # Install mysql-connector-python and cron
 RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron
+RUN pip install -r requirements.txt
 
 # Copy the Python script and the cron job file into the container
 COPY indeed-scrape.py .
