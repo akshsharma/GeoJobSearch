@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /usr/app/
 
 # Install mysql-connector-python and cron
-RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron
+RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron && pip install BeautifulSoup4
 
 # Copy the Python script and the cron job file into the container
 COPY indeed-scrape.py .
