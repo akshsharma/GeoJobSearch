@@ -1,11 +1,13 @@
 use template_db;
 
-CREATE TABLE IF NOT EXISTS employers(
+CREATE TABLE IF NOT EXISTS employers
+(
     employer_id INT AUTO_INCREMENT PRIMARY KEY,
     employer_name TEXT NOT NULL,
 );
 
-CREATE TABLE IF NOT EXISTS jobs(
+CREATE TABLE IF NOT EXISTS jobs
+(
     job_id INT AUTO_INCREMENT PRIMARY KEY,
     job_title TEXT NOT NULL,
     job_description TEXT NOT NULL,
