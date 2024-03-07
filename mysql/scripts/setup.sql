@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS employers(
     employer_name TEXT NOT NULL,
 );
 
-CREATE TABLE IF NOT EXISTS(
+CREATE TABLE IF NOT EXISTS jobs(
     job_id INT AUTO_INCREMENT PRIMARY KEY,
     job_title TEXT NOT NULL,
     job_description TEXT NOT NULL,

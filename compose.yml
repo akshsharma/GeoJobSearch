@@ -20,6 +20,8 @@ services:
       # Mysql docker image env vars
       - MYSQL_ROOT_PASSWORD=pwd
       - MYSQL_DATABASE=template_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=pwd
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
