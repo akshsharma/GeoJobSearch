@@ -20,11 +20,13 @@ def test_fileLoads():
     with open(fp, 'r') as file:
         data = json.load(file)
     assert isinstance(data, list), "Data corrupted, JSON did not load as list"
-    return data 
 
 #Check each element to ensure data integirty
 def test_checkElements():
-    data = test_fileLoads()  # Load data with test function
+    with open(fp, 'r') as file:
+        data = json.load(file)  # Load data NOT with test function 
+        # this used to load data using another test function, but
+        # using test function like this makes the output hard to read, so I changed it - Tyler
     
     for item in data:
         assert isinstance(item, dict), "Item is not a dictionary"
