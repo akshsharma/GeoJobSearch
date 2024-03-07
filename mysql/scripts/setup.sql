@@ -3,7 +3,7 @@ use template_db;
 CREATE TABLE IF NOT EXISTS employers
 (
     employer_id INT AUTO_INCREMENT PRIMARY KEY,
-    employer_name TEXT NOT NULL,
+    employer_name TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS jobs

@@ -26,6 +26,9 @@ services:
       - mariadb_data:/var/lib/mysql
     networks:
       - spring-mysql    # Allow the mysql app to talk to the spring app
+    ports:
+      - "3306:3306"     # Exposes port 3306 on the host and maps it to port 3306 in the container
+      # 
     
   react:
     build: ./react    # Look for Dockerfile in this path
@@ -45,11 +48,10 @@ services:
       - DB_DATABASE=template_db
       - DB_USER=root
       - DB_PASSWORD=pwd
-
-    
+    depends_on:
+      - mysql # Ensures MySQL is started before this
     networks:
-      - spring-mysql    # Allow the web-scraper app to talk to the mysql app
-      - spring-react    # Allow the web-scraper app to talk to the react app
+      - spring-mysql # Connects to the same network as mysql
 
 volumes:
   mariadb_data:
