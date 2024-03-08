@@ -1,3 +1,9 @@
+# List of Services
+version: '3.8'
+
+services:
+  spring:
+    build: ./spring   # Look for Dockerfile in this path
 #Docker Compose is a tool for defining and running multi-container Docker applications. 
 #With Docker Compose, you use a YAML file to configure your application's services, networks, volumes, and other resources.
 
