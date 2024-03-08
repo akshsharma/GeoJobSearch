@@ -23,7 +23,7 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=pwd
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql_changed
     networks:
       - spring-mysql    # Allow the mysql app to talk to the spring app
     ports:

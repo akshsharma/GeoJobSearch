@@ -18,3 +18,7 @@ CREATE TABLE IF NOT EXISTS jobs
     FOREIGN KEY (employer_id) REFERENCES employers(employer_id)
 );
 
+CREATE TABLE IF NOT EXISTS test
+(
+    test_id INT AUTO_INCREMENT PRIMARY KEY
+);
