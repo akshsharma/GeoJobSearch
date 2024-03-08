@@ -27,9 +27,11 @@ db_config = {
 
 try:
     # Connect to the database
+    print("Hello from db_write_script.py")
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
     create_employers_table_database(cursor)
+    print("Goodbye from db_write_script.py")
 except Error as e:
     print(f"Error: {e}")
 finally:
