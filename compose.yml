@@ -1,4 +1,6 @@
 # List of Services
+version: '3.8'
+
 services:
   spring:
     build: ./spring   # Look for Dockerfile in this path
@@ -41,8 +43,7 @@ services:
   web-scraper:
     build: ./web-scraper    # Look for Dockerfile in this path
     environment:
-      - BACKEND_PROXY=http://spring:8080
-      - DB_ADDRESS=jdbc:mysql://mysql:3306
+      - DB_HOST=mysql
       - DB_DATABASE=template_db
       - DB_USER=root
       - DB_PASSWORD=pwd

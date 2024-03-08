@@ -1,3 +1,6 @@
+SELECT 'Starting setup.sql script execution at ' AS message, NOW() AS timestamp;
+
+CREATE DATABASE IF NOT EXISTS template_db;
 use template_db;
 
 CREATE TABLE IF NOT EXISTS employers
