@@ -21,6 +21,10 @@ COPY test_indeed.py .
 COPY simple_test.py .
 COPY indeed_job_listings.json .
 
+COPY db_write_script.py . 
+# This script will write to the MariaDB
+RUN python db_write_script.py
+
 
 # These next lines set up a cron job to
 # run the script every 24 hours.
