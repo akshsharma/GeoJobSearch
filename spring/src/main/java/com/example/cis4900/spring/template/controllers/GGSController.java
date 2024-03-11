@@ -1,13 +1,11 @@
-package com.example.cis4900.spring.template.ggs;
+package com.example.cis4900.spring.template.controllers;
 
 import java.util.List;
 import java.util.Vector;
 
-import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.boot.configurationprocessor.json.JSONObject;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
