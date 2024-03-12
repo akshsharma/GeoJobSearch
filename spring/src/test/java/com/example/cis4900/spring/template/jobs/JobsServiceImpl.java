@@ -40,11 +40,6 @@ class JobsServiceImplTest {
     }
 
     @Test
-    void allJobs_ReturnsNull() {
-        assertNull(jobsService.allJobs(), "allJobs should return null");
-    }
-
-    @Test
     void count_ReturnsNull() {
         assertNull(jobsService.count(), "count should return null");
     }
