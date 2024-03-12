@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.cis4900.spring.template.jobs.JobsServiceImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-03-12T09:46:48" hostname="DESKTOP-RE4Q5FB" time="0.008">
+  <properties/>
+  <testcase name="updateJob_ReturnsNull()" classname="com.example.cis4900.spring.template.jobs.JobsServiceImplTest" time="0.002"/>
+  <testcase name="count_ReturnsNull()" classname="com.example.cis4900.spring.template.jobs.JobsServiceImplTest" time="0.001"/>
+  <testcase name="addJob_ReturnsNull()" classname="com.example.cis4900.spring.template.jobs.JobsServiceImplTest" time="0.0"/>
+  <testcase name="getJob_ReturnsNull()" classname="com.example.cis4900.spring.template.jobs.JobsServiceImplTest" time="0.001"/>
+  <testcase name="deleteJob_ReturnsNull()" classname="com.example.cis4900.spring.template.jobs.JobsServiceImplTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
