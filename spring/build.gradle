@@ -28,3 +28,28 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true)
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.75
+            }
+        }
+    }
+}
+
+test.finalizedBy(jacocoTestReport)
