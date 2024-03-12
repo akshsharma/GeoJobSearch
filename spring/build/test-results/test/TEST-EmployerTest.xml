@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="EmployerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-03-12T09:46:48" hostname="DESKTOP-RE4Q5FB" time="0.043">
+  <properties/>
+  <testcase name="testSetAndGetName()" classname="EmployerTest" time="0.037"/>
+  <testcase name="testNoArgsConstructor()" classname="EmployerTest" time="0.001"/>
+  <testcase name="testSetAndGetId()" classname="EmployerTest" time="0.002"/>
+  <testcase name="testAllArgsConstructor()" classname="EmployerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

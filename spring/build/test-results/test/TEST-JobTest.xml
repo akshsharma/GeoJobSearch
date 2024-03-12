@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JobTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-03-12T09:46:48" hostname="DESKTOP-RE4Q5FB" time="0.012">
+  <properties/>
+  <testcase name="testSetAndGetLocation()" classname="JobTest" time="0.001"/>
+  <testcase name="testSetAndGetDescription()" classname="JobTest" time="0.001"/>
+  <testcase name="testParameterizedConstructor()" classname="JobTest" time="0.001"/>
+  <testcase name="testSetAndGetTitle()" classname="JobTest" time="0.0"/>
+  <testcase name="testSetAndGetSalaryMax()" classname="JobTest" time="0.0"/>
+  <testcase name="testSetAndGetSalaryMin()" classname="JobTest" time="0.001"/>
+  <testcase name="testSetAndGetId()" classname="JobTest" time="0.001"/>
+  <testcase name="testSetAndGetEmployerId()" classname="JobTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
