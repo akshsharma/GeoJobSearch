@@ -18,7 +18,6 @@ public class Employer {
         this.name = name;
     }
 
-    public Employer() {}
 
     // Getters and setters
     public Integer getId() {
