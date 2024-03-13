@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import NotesList from './components/NotesList';
-import NewNoteForm from './components/NewNoteForm';
 import ErrorAlert from '../../components/ErrorAlert';
 import LoadingSpinner from '../../components/LoadingSpinner';
-import EditNoteModal from './components/EditNoteModal';
 import GlobalNavBar from '../../components/GlobalNavBar';
 import GoogleMap from './components/GoogleMap';
 import JobList from './components/JobList';
@@ -18,7 +15,7 @@ const HomePage = () => {
     // const [showEdit, setShowEdit] = useState(false);
     // const [noteToEdit, setNoteToEdit] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [loadingCount, setLoadingCount] = useState(false);
+    const [loadingCount] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -26,7 +23,7 @@ const HomePage = () => {
         // fetchCount();
         // fetchAllNotes();
         fetchJobList();
-    }, [])
+    }, []);
 
 
     const status = (res) => {
@@ -34,7 +31,7 @@ const HomePage = () => {
             throw new Error('Something Went Wrong');
         }
         return res;
-    }
+    };
 
     const fetchJobList = () => {
         setLoading(true);
@@ -49,7 +46,7 @@ const HomePage = () => {
                 setErrorMessage(error.message);
                 setError(true);
             });
-    }
+    };
 
     // was getting errors that referenced these lines, so I commented them out - Tyler
 
@@ -169,7 +166,7 @@ const HomePage = () => {
                 }
             </Container>
         </div>
-    )
+    );
 
     // return(
     //     <div>
@@ -193,6 +190,6 @@ const HomePage = () => {
     //         <EditNoteModal note={noteToEdit} show={showEdit} onClose={editClose} onSave={editNote} />
     //     </div>
     // )
-}
+};
 
 export default HomePage;

@@ -3,6 +3,7 @@ stages:
   - build
   - test_springboot
   - test_python
+  - test_react
 
 # Set environment variables or configuration options
 variables:
@@ -60,3 +61,18 @@ test_python:
   rules:
     - when: always
       allow_failure: false
+
+test_react:
+    stage: test_react
+    image: node:alpine
+    # script to run the test suite
+    script:
+        - cd react
+        # Update npm packages
+        - npm i eslint
+        # run eslint
+        - node_modules/eslint/bin/eslint.js .
+    rules:
+        - when: always
+          allow_failure: false
+
