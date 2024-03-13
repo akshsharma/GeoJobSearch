@@ -49,7 +49,7 @@ const HomePage = () => {
                 setErrorMessage(error.message);
                 setError(true);
             });
-    }
+    };
 
     // this reads in hard-coded fake jobs
     const fetchDummyJobList = () => {
