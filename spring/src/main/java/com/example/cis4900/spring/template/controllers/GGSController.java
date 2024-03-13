@@ -1,11 +1,14 @@
 package com.example.cis4900.spring.template.controllers;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
-
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,7 +25,7 @@ public class GGSController {
     public List<String> getDummy() {
         // return "hello from ggs!";
         // return dummyService.getDummyData();
-        Vector<String> myVector = new Vector<String>();
+        List<String> myVector = new Vector<String>();
         myVector.add("one line of data");
         myVector.add("another line of data");
         myVector.add("one final line of data");
@@ -35,7 +38,7 @@ public class GGSController {
         // Vector<JSONObject> myVector = new Vector<String>();
         // myVector.add("{\"Job Title\": \"Software Engineer\"}");
         // myVector.add("lafjeklajfljfakl");
-        String myString = "{\r\n" + //
+        return  "{\r\n" + //
                         "  \"jobs\":\r\n" + //
                         "  [\r\n" + //
                         "      {\r\n" + //
@@ -81,6 +84,5 @@ public class GGSController {
                         "}" + //
                         "";
 
-        return myString;
     }
 }
