@@ -60,5 +60,3 @@ jacocoTestCoverageVerification {
         }
     }
 }
-
-test.finalizedBy(jacocoTestReport)
