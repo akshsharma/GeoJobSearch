@@ -34,9 +34,9 @@ dependencies {
 
 test {
     useJUnitPlatform()  
+    finalizedBy 'pmdMain'
     finalizedBy jacocoTestReport
 }
-
 
 
 jacocoTestReport {

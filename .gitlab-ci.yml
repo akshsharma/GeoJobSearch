@@ -55,7 +55,7 @@ test_python:
     # Display coverage test results
     - coverage report
     # run pylint
-    - pylint ./indeed-scrape.py
+    - pylint ./indeed_scrape.py
   # Ensure that the pipeline fails if any errors occur during testing
   rules:
     - when: always
