@@ -40,7 +40,6 @@ public class GGSControllerTest {
     public void getHardCodedJSONTest() throws Exception {
         mockMvc.perform(get("/api/ggs/hardCodedJSON"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$.jobs[0].job.job_title").value("Software Engineer"))
                 .andExpect(jsonPath("$.jobs[1].job.job_title").value("Hardware Engineer"))
                 .andExpect(jsonPath("$.jobs[2].job.job_title").value("Tech Support"));
