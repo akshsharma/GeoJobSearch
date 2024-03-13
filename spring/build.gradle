@@ -39,14 +39,6 @@ test {
     finalizedBy jacocoTestReport
 }
 
-
-jacocoTestReport {
-    dependsOn test
-    reports {
-       csv.required = true
-    }
-}
-
 jacoco {
     toolVersion = "0.8.11"
 }
