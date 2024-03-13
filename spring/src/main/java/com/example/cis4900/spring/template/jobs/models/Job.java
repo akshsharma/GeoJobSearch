@@ -33,7 +33,6 @@ public class Job {
         this.employerId = employerId;
     }
 
-    public Job() {}
 
     // Getters and setters
     public Integer getId() {
