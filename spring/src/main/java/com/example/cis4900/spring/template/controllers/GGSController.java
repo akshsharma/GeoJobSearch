@@ -1,4 +1,4 @@
-package com.example.cis4900.spring.template.ggs;
+package com.example.cis4900.spring.template.controllers;
 
 import java.util.List;
 import java.util.Map;
