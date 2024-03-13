@@ -7,87 +7,88 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 
-
 @Entity
 public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer job_id;
 
-    private String title;
-    private String description;
-    private String location;
-    private float salaryMin;
-    private float salaryMax;
-    
+    private String job_title;
+    private String job_description;
+    private String job_location;
+    private float job_salaryMin;
+    private float job_salaryMax;
+
     @JoinColumn(name = "employer_id", foreignKey = @ForeignKey(name = "employer"))
-    private Integer employerId;
+    private Integer employer_id;
 
-    public Job(Integer id, String title, String description, String location, float salaryMin, float salaryMax, Integer employerId) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.location = location;
-        this.salaryMin = salaryMin;
-        this.salaryMax = salaryMax;
-        this.employerId = employerId;
+    public Job(Integer job_id, String job_title, String job_description, String job_location, float job_salaryMin,
+            float job_salaryMax,
+            Integer employer_id) {
+        this.job_id = job_id;
+        this.job_title = job_title;
+        this.job_description = job_description;
+        this.job_location = job_location;
+        this.job_salaryMin = job_salaryMin;
+        this.job_salaryMax = job_salaryMax;
+        this.employer_id = employer_id;
     }
 
 
     // Getters and setters
     public Integer getId() {
-        return id;
+        return job_id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.job_id = id;
     }
 
     public String getTitle() {
-        return title;
+        return job_title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.job_title = title;
     }
 
     public String getDescription() {
-        return description;
+        return job_description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.job_description = description;
     }
 
     public String getLocation() {
-        return location;
+        return job_location;
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        this.job_location = location;
     }
 
     public float getSalaryMin() {
-        return salaryMin;
+        return job_salaryMin;
     }
 
     public void setSalaryMin(float salaryMin) {
-        this.salaryMin = salaryMin;
+        this.job_salaryMin = salaryMin;
     }
 
     public float getSalaryMax() {
-        return salaryMax;
+        return job_salaryMax;
     }
 
     public void setSalaryMax(float salaryMax) {
-        this.salaryMax = salaryMax;
+        this.job_salaryMax = salaryMax;
     }
 
     public Integer getEmployerId() {
-        return employerId;
+        return employer_id;
     }
 
     public void setEmployerId(Integer employerId) {
-        this.employerId = employerId;
+        this.employer_id = employerId;
     }
 }

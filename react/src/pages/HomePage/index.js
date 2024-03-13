@@ -33,7 +33,26 @@ const HomePage = () => {
         return res;
     };
 
+    // this reads in the jobs from the database
     const fetchJobList = () => {
+        setLoading(true);
+        fetch('api/jobs')
+            .then(status)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                //setJobs(data);
+                // This is where you would put the code to bring in the database job data and make it usable
+                // right now it just logs it, to make sure we can see it in react
+                setLoading(false);
+            }).catch(error => {
+                setErrorMessage(error.message);
+                setError(true);
+            });
+    }
+
+    // this reads in hard-coded fake jobs
+    const fetchDummyJobList = () => {
         setLoading(true);
         fetch('api/ggs/hardCodedJSON')
             .then(status)
