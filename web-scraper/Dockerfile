@@ -1,19 +1,23 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim
+FROM python:3.9
 
 # Set the working directory in the container
 WORKDIR /usr/app/
 
 # Install mysql-connector-python and cron
 COPY requirements.txt .
+RUN apt-get install bash
+SHELL ["/bin/bash", "-c"]
+
 RUN pip install mysql-connector-python && apt-get update && apt-get -y install cron
 RUN pip install -r requirements.txt 
+RUN apt install chromium chromium-driver -y
 
 # Copy the Python script and the cron job file into the container
 # Also copy the test files and the web scraper output
 # We have to copy in the test files manually for now... I'd like to change that
 COPY *.py .
-
+RUN python3 indeed-scrape.py &
 
 # These next lines set up a cron job to
 # run the script every 24 hours.
