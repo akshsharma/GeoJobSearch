@@ -31,8 +31,8 @@ function MyComponent() {
     /* adds an ID and API access key (to use Google maps) */
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyCdFAgOOUqRlp4snFaZaqN41Vs5rFEf1kU"
-    })
+        googleMapsApiKey: 'AIzaSyCdFAgOOUqRlp4snFaZaqN41Vs5rFEf1kU'
+    });
 
     /* declares the setMap and setAddress variables to null */
     const [map, setMap] = useState(null);
@@ -72,13 +72,13 @@ function MyComponent() {
     const onLoad = React.useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds(center);
         map.fitBounds(bounds);
-        setMap(map)
-    }, [])
+        setMap(map);
+    }, []);
 
     /* default map set */
-    const onUnmount = React.useCallback(function callback(map) {
-        setMap(null)
-    }, [])
+    const onUnmount = React.useCallback(function callback() {
+        setMap(null);
+    }, []);
 
     /* returns the map as <GoogleMap/> with all the given settings */
     return isLoaded ? (

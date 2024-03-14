@@ -1,28 +1,22 @@
-# Stage 1: build
-##  Start with a base image from Eclipse Temurin (a distribution of OpenJDK) with Alpine Linux, specifying it as the build stage and naming it "build".
 FROM eclipse-temurin:21-jammy as build
 WORKDIR /workspace/app
 
+
 ## Copy neccessary files for building the java project
-COPY mvnw .
-RUN chmod +x ./mvnw
-COPY .mvn .mvn
-COPY pom.xml .
+COPY gradlew .
+RUN chmod +x ./gradlew
+COPY gradle/wrapper/gradle-wrapper.properties ./gradle/wrapper/gradle-wrapper.properties
+COPY gradle/wrapper/gradle-wrapper.jar ./gradle/wrapper/gradle-wrapper.jar
+
+COPY build.gradle .
+
 COPY src src
 
-## Use Maven to build the application using the RUN stanza
-RUN ./mvnw install -DskipTests
-RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+## Ensure the Gradle Wrapper script is executable
+RUN chmod +x ./gradlew
 
-# Stage 2: runtime
-## Start a new stage, using a fresh Alpine-based image from Eclipse Temurin.
-FROM eclipse-temurin:21-jammy
-ARG DEPENDENCY=/workspace/app/target/dependency
+## Use Gradle to build the application using the RUN stanza
+RUN ./gradlew build
 
-## Only copy necessary files
-COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
-COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
-
-## Start the srping app
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.example.cis4900.spring.template.TemplateApplication"]
+## need to add a command to run the app here
+ENTRYPOINT ["java","-jar","build/libs/app-geojobsearch-0.1.jar"]

@@ -1,5 +1,5 @@
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import './GlobalNavBar.css';
 import Logo from './geoJobSearchLogo.png';
@@ -28,7 +28,7 @@ const GlobalNavBar = (props) => {
                 </div>
             </Container>
         </Navbar>
-    </div>
-}
+    </div>;
+};
 
 export default GlobalNavBar;

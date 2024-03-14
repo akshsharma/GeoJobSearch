@@ -3,15 +3,15 @@ package com.example.cis4900.spring.template.jobs;
 import com.example.cis4900.spring.template.jobs.models.Job;
 
 public interface JobsService {
-    public String addJob(Job newJob);
+    String addJob(Job newJob);
 
-    public Job getJob(Integer id);
+    Job getJob(Integer id);
+    
+    String updateJob(Job updatedJob);
 
-    public String updateJob(Job updatedJob);
+    String deleteJob(Integer id);
 
-    public String deleteJob(Integer id);
+    Iterable<Job> allJobs();
 
-    public Iterable<Job> allJobs();
-
-    public Integer count();
+    Integer count();
 }
