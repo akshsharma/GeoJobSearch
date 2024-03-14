@@ -42,7 +42,7 @@ function MyComponent() {
     /* fetch data when component mounts */
     useEffect(() => {
         fetchData();
-    }, [])
+    }, []);
 
     /* fetch data from endpoint */
     const fetchData = async () => {
@@ -54,7 +54,7 @@ function MyComponent() {
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    }
+    };
 
     /* convert addresses into coordinates */
     const geocodeAddress = async (address) => {
@@ -97,5 +97,5 @@ function MyComponent() {
                 return null;
             })}
         </GoogleMap>
-    ) : <></>
+    ) : <></>;
 } export default React.memo(MyComponent);
