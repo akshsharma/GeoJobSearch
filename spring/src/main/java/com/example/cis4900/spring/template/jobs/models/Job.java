@@ -34,6 +34,8 @@ public class Job {
         this.employer_id = employer_id;
     }
 
+    public Job() {
+    }
 
     // Getters and setters
     public Integer getId() {
