@@ -3,11 +3,13 @@ stages:
   - build
   - test_springboot
   - test_python
+  - test_react
 
 # Set environment variables or configuration options
 variables:
   # Disable Gradle Daemon to avoid potential issues with CI environment
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  JACOCO_CSV_LOCATION: "spring/build/reports/jacoco/test/jacocoTestReport.csv"
 
 # Define the build stage
 build:
@@ -32,7 +34,9 @@ test_springboot:
   script:
     - cd spring
     # Run Gradle tests
-    - ./gradlew test
+    - ./gradlew check
+    # Calculate code coverage
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, " instructions covered"; print "Total coverage:\s", 100*covered/instructions,  "%"}' build/reports/jacoco/test/jacocoTestReport.csv
   # Ensure that the pipeline fails if any errors occur during testing
   rules:
     - when: always
@@ -53,7 +57,24 @@ test_python:
     - coverage run -m pytest
     # Display coverage test results
     - coverage report
+    # run pylint
+    - pylint ./indeed_scrape.py
   # Ensure that the pipeline fails if any errors occur during testing
   rules:
     - when: always
       allow_failure: false
+
+test_react:
+    stage: test_react
+    image: node:alpine
+    # script to run the test suite
+    script:
+        - cd react
+        # Update npm packages
+        - npm i eslint
+        # run eslint
+        - node_modules/eslint/bin/eslint.js .
+    rules:
+        - when: always
+          allow_failure: false
+

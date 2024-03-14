@@ -39,6 +39,9 @@ services:
       - BACKEND_PROXY=http://spring:8080
     networks:
       - spring-react    # Allow the react app to discover the spring app  
+    volumes:
+      - ./react:/app/react
+      - /app/react/node_modules
 
   web-scraper:
     build: ./web-scraper    # Look for Dockerfile in this path
