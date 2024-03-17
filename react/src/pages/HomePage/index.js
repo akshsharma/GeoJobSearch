@@ -23,6 +23,7 @@ const HomePage = () => {
         // fetchCount();
         // fetchAllNotes();
         fetchJobList();
+        // fetchDummyJobList(); // uncomment this to bring in the dummy job data
     }, []);
 
 
