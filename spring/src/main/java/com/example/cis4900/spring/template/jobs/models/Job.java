@@ -18,13 +18,17 @@ public class Job {
     private String job_location;
     private float job_salaryMin;
     private float job_salaryMax;
+    private String job_website_link;
+    private String job_application_link;
 
     @JoinColumn(name = "employer_id", foreignKey = @ForeignKey(name = "employer"))
     private Integer employer_id;
 
     public Job(Integer job_id, String job_title, String job_description, String job_location, float job_salaryMin,
             float job_salaryMax,
-            Integer employer_id) {
+            Integer employer_id,
+            String job_website_link,
+            String job_application_link) {
         this.job_id = job_id;
         this.job_title = job_title;
         this.job_description = job_description;
@@ -32,6 +36,8 @@ public class Job {
         this.job_salaryMin = job_salaryMin;
         this.job_salaryMax = job_salaryMax;
         this.employer_id = employer_id;
+        this.job_website_link = job_website_link;
+        this.job_application_link = job_application_link;
     }
 
     public Job() {
@@ -92,5 +98,21 @@ public class Job {
 
     public void setEmployerId(Integer employerId) {
         this.employer_id = employerId;
+    }
+
+    public String getWebsiteLink() {
+        return job_website_link;
+    }
+
+    public void setWebsiteLink(String website_link) {
+        this.job_website_link = website_link;
+    }
+
+    public String getApplicationLink() {
+        return job_application_link;
+    }
+
+    public void setApplicationLink(String application_link) {
+        this.job_application_link = application_link;
     }
 }
