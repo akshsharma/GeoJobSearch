@@ -6,12 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
 
 @Entity
 public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer job_id;
+    @Basic(optional = false)
+    @Column(name = "job_id", nullable = false)
+    private Integer jobId;
 
     private String job_title;
     private String job_description;
@@ -24,12 +28,12 @@ public class Job {
     @JoinColumn(name = "employer_id", foreignKey = @ForeignKey(name = "employer"))
     private Integer employer_id;
 
-    public Job(Integer job_id, String job_title, String job_description, String job_location, float job_salaryMin,
+    public Job(Integer jobId, String job_title, String job_description, String job_location, float job_salaryMin,
             float job_salaryMax,
             Integer employer_id,
             String job_website_link,
             String job_application_link) {
-        this.job_id = job_id;
+        this.jobId = jobId;
         this.job_title = job_title;
         this.job_description = job_description;
         this.job_location = job_location;
@@ -45,11 +49,11 @@ public class Job {
 
     // Getters and setters
     public Integer getId() {
-        return job_id;
+        return jobId;
     }
 
     public void setId(Integer id) {
-        this.job_id = id;
+        this.jobId = id;
     }
 
     public String getTitle() {

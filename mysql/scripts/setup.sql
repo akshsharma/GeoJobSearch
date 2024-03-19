@@ -35,7 +35,7 @@ INSERT INTO employer (employer_name) VALUES
 ('XYZ Corporation'),
 ('123 Enterprises');
 
-INSERT INTO job (job_title, job_description, job_location, job_salary_min, job_salary_max, employer_id) VALUES
+INSERT INTO job (job_title, job_description, job_location, job_salary_min, job_salary_max, employer_id, job_website_link, job_application_link) VALUES
 ('Software Engineer', 'Develop and maintain software applications', 'New York', 60000.00, 80000.00, 1, 'https://en.wikipedia.org/wiki/Placeholder_name', 'https://en.wikipedia.org/wiki/Lorem_ipsum'),
 ('Marketing Manager', 'Plan and execute marketing campaigns', 'Los Angeles', 50000.00, 70000.00, 1, 'https://en.wikipedia.org/wiki/Placeholder_name', 'https://en.wikipedia.org/wiki/Lorem_ipsum'),
 ('Financial Analyst', 'Analyze financial data and prepare reports', 'Chicago', 55000.00, 75000.00, 1, 'https://en.wikipedia.org/wiki/Placeholder_name', 'https://en.wikipedia.org/wiki/Lorem_ipsum'),

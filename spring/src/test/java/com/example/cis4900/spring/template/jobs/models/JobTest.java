@@ -21,8 +21,10 @@ public class JobTest {
         float jobSalaryMin = 50000.0f;
         float jobSalaryMax = 100000.0f;
         Integer employerId = 2;
+        String jobWebsiteLink = "https://en.wikipedia.org/wiki/Placeholder_name";
+        String jobApplicationLink = "https://en.wikipedia.org/wiki/Lorem_ipsum";
 
-        Job job = new Job(jobId, jobTitle, jobDescription, jobLocation, jobSalaryMin, jobSalaryMax, employerId);
+        Job job = new Job(jobId, jobTitle, jobDescription, jobLocation, jobSalaryMin, jobSalaryMax, employerId, jobWebsiteLink, jobApplicationLink);
 
         assertEquals(jobId, job.getId());
         assertEquals(jobTitle, job.getTitle());
@@ -31,6 +33,8 @@ public class JobTest {
         assertEquals(jobSalaryMin, job.getSalaryMin());
         assertEquals(jobSalaryMax, job.getSalaryMax());
         assertEquals(employerId, job.getEmployerId());
+        assertEquals(jobWebsiteLink, job.getWebsiteLink());
+        assertEquals(jobApplicationLink, job.getApplicationLink());
     }
     
     @Test
@@ -80,6 +84,20 @@ public class JobTest {
         Integer employerId = 2;
         job.setEmployerId(employerId);
         assertEquals(employerId, job.getEmployerId());
+    }
+
+    @Test
+    public void testSetAndGetWebsiteLink() {
+        String jobWebsiteLink = "www.google.com";
+        job.setWebsiteLink(jobWebsiteLink);
+        assertEquals(jobWebsiteLink, job.getWebsiteLink());
+    }
+
+    @Test
+    public void testSetAndGetApplicationLink() {
+        String jobApplicatinLink = "www.apple.com";
+        job.setApplicationLink(jobApplicatinLink);
+        assertEquals(jobApplicatinLink, job.getApplicationLink());
     }
 }
 
