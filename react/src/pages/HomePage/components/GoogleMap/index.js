@@ -34,9 +34,9 @@ function MyComponent() {
         googleMapsApiKey: 'AIzaSyCdFAgOOUqRlp4snFaZaqN41Vs5rFEf1kU'
     });
 
-    /* declares the setMap and setAddress variables to null */
+    /* declares the setMap and setJobs variables to null */
     const [map, setMap] = useState(null);
-    const [addresses, setAddresses] = useState([]);
+    const [jobs, setJobs] = useState([]);
 
 
     /* fetch data when component mounts */
@@ -47,10 +47,12 @@ function MyComponent() {
     /* fetch data from endpoint */
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/addresses'); 
-            const jobs = response.data;
-            const jobAdresses = jobs.map(job => job.job_location);
-            setAddresses(jobAdresses);
+            const response = await axios.get('http://localhost:8080/api/jobs'); 
+            const jobsWithCoords = await Promise.all(response.data.map(async (job) => {
+                const coordinates = await geocodeAddress(job.address);
+                return { ...job, coordinates };
+            }));
+            setJobs(jobsWithCoords);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -80,6 +82,16 @@ function MyComponent() {
         setMap(null);
     }, []);
 
+
+    /* set custom marker */
+
+    const customMarkerIcon = {
+        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png', // URL to your custom marker icon
+        scaledSize: new window.google.maps.Size(50, 50), // Size of the marker icon
+        origin: new window.google.maps.Point(0, 0), // Origin of the marker icon (top left corner)
+        anchor: new window.google.maps.Point(25, 50) // Anchor point of the marker icon (center bottom)
+    };
+
     /* returns the map as <GoogleMap/> with all the given settings */
     return isLoaded ? (
         <GoogleMap
@@ -89,12 +101,12 @@ function MyComponent() {
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
-            {addresses.map(async (address, index) => {
-                const location = await geocodeAddress(address);
-                if (location) {
-                    return <Marker key={index} position={location} />;
-                }
-                return null;
+            {jobs.map((job, index) => {
+                return (
+                    <Marker key={index} position={job.coordinates} icon ={customMarkerIcon}>
+                        <div style={{ color: 'black', fontWeight: 'bold' }}>{job.job_title}</div>
+                    </Marker>
+                );
             })}
         </GoogleMap>
     ) : <></>;
