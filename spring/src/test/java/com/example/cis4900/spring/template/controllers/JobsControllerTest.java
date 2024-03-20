@@ -32,8 +32,8 @@ public class JobsControllerTest {
     private JobsService jobsService;
 
     private List<Job> dummyJobs = Arrays.asList(
-            new Job(1, "Dummy Title One", "Dummy Desc One", "Dummy Location One", 1000.0f, 2000.0f, 456456),
-            new Job(2, "Dummy Title Two", "Dummy Desc Two", "Dummy Location Two", 1500.0f, 2500.0f, 123123)
+            new Job(1, "Dummy Title One", "Dummy Desc One", "Dummy Location One", 1000.0f, 2000.0f, 456456, "wikipedia.org", "wikipedia.org"),
+            new Job(2, "Dummy Title Two", "Dummy Desc Two", "Dummy Location Two", 1500.0f, 2500.0f, 123123, "wikipedia.org", "wikipedia.org")
     );
 
     @Test

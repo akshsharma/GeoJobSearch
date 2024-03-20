@@ -18,7 +18,8 @@ public class JobsServiceImpl implements JobsService {
 
     @Override
     public Job getJob(Integer id) {
-        return null;
+        System.out.println("Hello from getJob()");
+        return jobsRepository.findByJobId(id);
     }
 
     @Override
