@@ -33,9 +33,17 @@ dependencies {
 }
 
 test {
+    filter{
+        excludeTestsMatching "*Integration*"
+    }
     useJUnitPlatform()  
     finalizedBy 'pmdMain'
     finalizedBy jacocoTestReport
+}
+
+task integration(type : Test){
+    include 'test.java.com.example.cis4900.spring.template.integration.SimpleIntegrationTest'
+    useJUnitPlatform()
 }
 
 
