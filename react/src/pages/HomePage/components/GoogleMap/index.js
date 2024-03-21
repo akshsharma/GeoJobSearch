@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import axios from 'axios';
 
 
@@ -34,10 +34,11 @@ function MyComponent() {
         googleMapsApiKey: 'AIzaSyCdFAgOOUqRlp4snFaZaqN41Vs5rFEf1kU'
     });
 
-    /* declares the setMap, setJobs, and customMarkerIcon variables to null */
+    /* declares the setMap, setJobs, customMarkerIcon, and selectedJob variables to null */
     const [map, setMap] = useState(null);
     const [jobs, setJobs] = useState([]);
     const [customMarkerIcon, setCustomMarkerIcon] = useState(null);
+    const [selectedJob, setSelectedJob] = useState(null);
 
     /* fetch data when component mounts */
     useEffect(() => {
@@ -47,9 +48,9 @@ function MyComponent() {
     /* fetch data from endpoint */
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/jobs'); 
+            const response = await axios.get('api/jobs'); 
             const jobsWithCoords = await Promise.all(response.data.map(async (job) => {
-                const coordinates = await geocodeAddress(job.address);
+                const coordinates = await geocodeAddress(job.location);
                 return { ...job, coordinates };
             }));
             setJobs(jobsWithCoords);
@@ -61,7 +62,7 @@ function MyComponent() {
     /* convert addresses into coordinates */
     const geocodeAddress = async (address) => {
         try {
-            const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=YOUR_GOOGLE_MAPS_API_KEY`);
+            const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=AIzaSyCdFAgOOUqRlp4snFaZaqN41Vs5rFEf1kU`);
             const location = response.data.results[0].geometry.location;
             return location;
         } catch (error) {
@@ -106,8 +107,23 @@ function MyComponent() {
         >
             {jobs.map((job, index) => {
                 return (
-                    <Marker key={index} position={job.coordinates} icon ={customMarkerIcon}>
-                        <div style={{ color: 'black', fontWeight: 'bold' }}>{job.job_title}</div>
+                    <Marker 
+                        key={index} 
+                        position={job.coordinates} 
+                        icon ={customMarkerIcon}
+                        onClick={() => setSelectedJob(job)}>
+
+                        {selectedJob === job && (
+                            <InfoWindow
+                                onCloseClick={() => setSelectedJob(null)}
+                                position={job.coordinates}
+                            >
+                                <div>
+                                    <h3>{job.title}</h3>
+                                    <p>{job.description}</p>
+                                </div>
+                            </InfoWindow>
+                        )}
                     </Marker>
                 );
             })}

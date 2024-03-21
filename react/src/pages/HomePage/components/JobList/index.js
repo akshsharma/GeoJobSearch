@@ -16,9 +16,9 @@ const JobList = (props) => {
                 :
                 <Row>
                     <Stack gap={2}>
-                        {props.list.jobs.map(item => {
+                        {props.list.map(item => {
                             return (
-                                <Card key={item.job.job_id} bg="white" text="#282c3">
+                                <Card key={item.id} bg="white" text="#282c3">
                                     <Card.Body>
                                         <Stack direction="horizontal" gap={1}>
                                             <JobPanel listEntry={item}></JobPanel>

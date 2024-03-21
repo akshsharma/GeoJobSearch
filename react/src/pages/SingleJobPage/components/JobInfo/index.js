@@ -14,7 +14,7 @@ const JobInfo = () => {
     /* fetch data from endpoint */
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/jobs/{id}'); 
+            const response = await axios.get('api/jobs/{id}'); 
             setjob(response);
         } catch (error) {
             console.error('Error fetching data:', error);
