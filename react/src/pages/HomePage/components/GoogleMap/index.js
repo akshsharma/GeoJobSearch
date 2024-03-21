@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import axios from 'axios';
+import './GoogleMap.css';
 
 
 /* controls the size of the Google map */
@@ -119,7 +121,9 @@ function MyComponent() {
                                 position={job.coordinates}
                             >
                                 <div>
-                                    <h3>{job.title}</h3>
+                                    <Link to={`/jobs/${job.id}`} className='link-style'>
+                                        <h3>{job.title}</h3>
+                                    </Link>
                                     <p>{job.description}</p>
                                 </div>
                             </InfoWindow>
