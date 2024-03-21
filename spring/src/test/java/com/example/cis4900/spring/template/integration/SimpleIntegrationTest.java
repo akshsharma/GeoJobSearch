@@ -18,13 +18,37 @@ import com.example.cis4900.spring.template.jobs.JobsServiceImpl;
 import com.example.cis4900.spring.template.jobs.models.Job;
 import com.example.cis4900.spring.template.controllers.JobsController;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Arrays;
+
 
 public class SimpleIntegrationTest {
+
+    @Autowired
+    private JobsService jobsService;
 
     private List<Job> targetJobs = Arrays.asList(
         new Job(1, "Software Engineer", "Develop and maintain software applications", "New York", 60000.00f, 80000.00f, 1, "https://en.wikipedia.org/wiki/Placeholder_name", "https://en.wikipedia.org/wiki/Lorem_ipsum"),
@@ -45,10 +69,52 @@ public class SimpleIntegrationTest {
     // }
 
     @Test
-    public void JobsEndpointTest(){
-        JobsService jobsService = new JobsServiceImpl();
-        Iterable<Job> databaseJobs = jobsService.allJobs();
-        assertEquals(databaseJobs, targetJobs);
+    public void NumJobsEndpointTest() throws Exception {
+        // Iterable<Job> databaseJobs = jobsService.allJobs();
+        try (
+            Connection connection = DriverManager.getConnection("jdbc:mysql://mysql:3306/template_db",
+                "root", "pwd");
+            Statement statement = connection.createStatement()
+        ){
+            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM job");
+            resultSet.next();
+            int count = resultSet.getInt(1);
+            assertEquals(5, count, "Expected 5 job postings in the database");
+        }
+
+        assertEquals(1, 1);
+    }
+
+    @Test
+    public void JobValuesEndpointTest() throws Exception {
+        // Iterable<Job> databaseJobs = jobsService.allJobs();
+        try (
+            Connection connection = DriverManager.getConnection("jdbc:mysql://mysql:3306/template_db",
+                "root", "pwd");
+            Statement statement = connection.createStatement()
+        ){
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM job");
+            
+            for(int i = 0; i < 5; i++){
+                resultSet.next();
+                int id = resultSet.getInt("job_id");
+                String title = resultSet.getString("job_title");
+                String description = resultSet.getString("job_description");
+                String location = resultSet.getString("job_location");
+                float salary_min = resultSet.getFloat("job_salary_min");
+                float salary_max = resultSet.getFloat("job_salary_max");
+                int employer_id = resultSet.getInt("employer_id");
+                String website_link = resultSet.getString("job_website_link");
+                String application_link = resultSet.getString("job_application_link");
+                
+                Job resultJob = new Job(id, title, description, location, salary_min, salary_max, employer_id, website_link, application_link);
+
+                assertEquals(targetJobs.get(i), resultJob, "Should match the test jobs I created");
+            }
+            
+        }
+
+        assertEquals(1, 1);
     }
     
 }

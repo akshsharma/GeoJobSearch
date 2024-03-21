@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+
+import java.util.Objects;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 
@@ -119,4 +122,21 @@ public class Job {
     public void setApplicationLink(String application_link) {
         this.job_application_link = application_link;
     }
+
+    // ChatGPT helped with this one
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Job job = (Job) obj;
+        return jobId == job.jobId &&
+                Float.compare(job.job_salaryMin, job_salaryMin) == 0 &&
+                Float.compare(job.job_salaryMax, job_salaryMax) == 0 &&
+                job.job_title.equals(job_title) &&
+                job.job_description.equals(job_description) &&
+                job.job_location.equals(job_location) &&
+                job.job_application_link.equals(job_application_link) &&
+                job.job_website_link.equals(job_website_link);
+    }
+
 }

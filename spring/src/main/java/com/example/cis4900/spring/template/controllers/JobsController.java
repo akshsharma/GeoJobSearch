@@ -16,7 +16,6 @@ import java.util.Vector;
 @RestController
 @RequestMapping(path = "api/jobs") // has to be API or React can't see it. I don't know why - Tyler
 public class JobsController {
-
     
     private JobsService jobsService;
 
