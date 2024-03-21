@@ -30,29 +30,29 @@ const SingleJobPage = () => {
         return res;
     };
     
-    const fetchJob = async () => {
-        // setLoading(true);
-        // fetch('api/jobs/1')
-        //     .then(status)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         setJob(data);
-        //         setLoading(false);
-        //     }).catch(error => {
-        //         setErrorMessage(error.message);
-        //         setError(true);
-        //     });
-        try {
-            const response = await fetch(`api/jobs/${id}`);
-            if (!response.ok) {
-                throw new Error('Failed to fetch data');
-            }
-            const data = await response.json();
-            console.log(data); // Use the fetched data as needed
-        } catch (error) {
-            console.error('Error fetching job data:', error);
-        }
+    const fetchJob = () => {
+        setLoading(true);
+        fetch(`/api/jobs/${id}`)
+            .then(status)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setJob(data);
+                setLoading(false);
+            }).catch(error => {
+                setErrorMessage(error.message);
+                setError(true);
+            });
+        // try {
+        //     const response = await fetch(`api/jobs/${id}`);
+        //     if (!response.ok) {
+        //         throw new Error('Failed to fetch data');
+        //     }
+        //     const data = await response.json();
+        //     console.log(data); // Use the fetched data as needed
+        // } catch (error) {
+        //     console.error('Error fetching job data:', error);
+        // }
     };
 
     return(
