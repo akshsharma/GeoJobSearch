@@ -34,10 +34,10 @@ function MyComponent() {
         googleMapsApiKey: 'AIzaSyCdFAgOOUqRlp4snFaZaqN41Vs5rFEf1kU'
     });
 
-    /* declares the setMap and setJobs variables to null */
+    /* declares the setMap, setJobs, and customMarkerIcon variables to null */
     const [map, setMap] = useState(null);
     const [jobs, setJobs] = useState([]);
-
+    const [customMarkerIcon, setCustomMarkerIcon] = useState(null);
 
     /* fetch data when component mounts */
     useEffect(() => {
@@ -75,6 +75,16 @@ function MyComponent() {
         const bounds = new window.google.maps.LatLngBounds(center);
         map.fitBounds(bounds);
         setMap(map);
+
+        /* set custom marker */
+        const markerIcon = {
+            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png', // URL to your custom marker icon
+            scaledSize: new window.google.maps.Size(50, 50), // Size of the marker icon
+            origin: new window.google.maps.Point(0, 0), // Origin of the marker icon (top left corner)
+            anchor: new window.google.maps.Point(25, 50) // Anchor point of the marker icon (center bottom)
+        };
+
+        setCustomMarkerIcon(markerIcon);
     }, []);
 
     /* default map set */
@@ -83,14 +93,7 @@ function MyComponent() {
     }, []);
 
 
-    /* set custom marker */
-
-    const customMarkerIcon = {
-        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png', // URL to your custom marker icon
-        scaledSize: new window.google.maps.Size(50, 50), // Size of the marker icon
-        origin: new window.google.maps.Point(0, 0), // Origin of the marker icon (top left corner)
-        anchor: new window.google.maps.Point(25, 50) // Anchor point of the marker icon (center bottom)
-    };
+    
 
     /* returns the map as <GoogleMap/> with all the given settings */
     return isLoaded ? (
