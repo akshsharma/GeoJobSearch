@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
@@ -27,7 +27,6 @@ const JobInfo = () => {
         <div><b>Location:</b> {job.job_location}</div>
         <div><b>Salary min:</b> ${job.job_salary_min}</div>
         <div><b>Salary max:</b> ${job.job_salary_max}</div>
-        <div><b>Employer:</b> {employer.employer_name}</div>
     </div>;
 
 };
