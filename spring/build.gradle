@@ -42,7 +42,9 @@ test {
 }
 
 task integration(type : Test){
-    include 'test.java.com.example.cis4900.spring.template.integration.SimpleIntegrationTest'
+    filter{
+        includeTestsMatching "*Integration*" 
+    }
     useJUnitPlatform()
 }
 
