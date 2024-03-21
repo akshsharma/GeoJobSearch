@@ -10,8 +10,8 @@ const JobInfo = (job) => {
         <div><b>Salary min:</b> ${job.salaryMin}</div>
         <div><b>Salary max:</b> ${job.salaryMax}</div>
         <div><b>Salary max:</b> ${job.salaryMax}</div>
-        <div><b>Company Webstie:</b> ${job.website_link}</div>
-        <div><b>Apply:</b> ${job.application_link}</div>
+        <div><b>Company Webstie:</b> {job.website_link}</div>
+        <div><b>Apply:</b> {job.application_link}</div>
     </div>;
 
 };
