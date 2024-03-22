@@ -13,6 +13,7 @@
 /* Makes sure that any other texts on this page are white */
 .bg-body-tertiary {
     color: white;
+    margin-bottom: 20px;
 }
 
 /* The navigation bar's selected tab is underlined */

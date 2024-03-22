@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface JobsRepository extends CrudRepository<Job, Long> {
 
     // Inherits CRUD operations and query methods for handling 'Job' entities.
-
+    Job findByJobId(Integer id);
 }

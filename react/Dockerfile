@@ -13,6 +13,12 @@ RUN npm ci
 # Run the Google maps API (requires React v16.6)
 RUN npm i -S @react-google-maps/api
 
+# Install axios to wait for endpoints
+RUN npm install axios
+
+# Install react-router-dom to switch between pages
+RUN npm install react-router-dom
+
 # Set environment variables
 ENV CI=true
 ENV PORT=3000

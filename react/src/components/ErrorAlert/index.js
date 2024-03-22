@@ -1,3 +1,4 @@
+import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 
 const ErrorAlert = (props) => {
@@ -5,7 +6,7 @@ const ErrorAlert = (props) => {
         <Alert variant='danger' onClose={props.onClose} dismissible>
             {props.errorMessage}
         </Alert>
-    </div>
-}
+    </div>;
+};
 
 export default ErrorAlert;
