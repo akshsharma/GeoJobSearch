@@ -42,7 +42,7 @@ const HomePage = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                //setJobs(data);
+                setJobs(data);
                 // This is where you would put the code to bring in the database job data and make it usable
                 // right now it just logs it, to make sure we can see it in react
                 setLoading(false);

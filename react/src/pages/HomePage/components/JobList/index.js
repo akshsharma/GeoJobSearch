@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Stack from 'react-bootstrap/Stack';
 import JobPanel from '../JobPanel';
+import './JobList.css';
+
 
 const JobList = (props) => {
     console.log(props);
@@ -16,12 +19,14 @@ const JobList = (props) => {
                 :
                 <Row>
                     <Stack gap={2}>
-                        {props.list.jobs.map(item => {
+                        {props.list.map(item => {
                             return (
-                                <Card key={item.job.job_id} bg="white" text="#282c3">
+                                <Card key={item.id} bg="white" text="#282c3">
                                     <Card.Body>
                                         <Stack direction="horizontal" gap={1}>
-                                            <JobPanel listEntry={item}></JobPanel>
+                                            <Link to={`/jobs/${item.id}`} className='link-style'>
+                                                <JobPanel listEntry={item}></JobPanel>
+                                            </Link>
                                         </Stack>
                                     </Card.Body>
                                 </Card>
