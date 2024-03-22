@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './JobInfo.css';
 
 const JobInfo = (job) => {
 
@@ -9,8 +9,8 @@ const JobInfo = (job) => {
         <div><b>Location:</b> {job.entry.location}</div>
         <div><b>Salary min:</b> ${job.entry.salaryMin}</div>
         <div><b>Salary max:</b> ${job.entry.salaryMax}</div>
-        <div><a href={job.entry.websiteLink}>Company Webstie</a></div>
-        <div><a href={job.entry.applicationLink}>Apply</a></div>
+        <div><b>Site:</b><a href={job.entry.websiteLink}> {job.entry.websiteLink}</a></div>
+        <div><a className='button' href={job.entry.applicationLink}>Apply</a></div>
     </div>;
 
 };
