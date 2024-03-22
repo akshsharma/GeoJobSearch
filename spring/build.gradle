@@ -33,9 +33,19 @@ dependencies {
 }
 
 test {
+    filter{
+        excludeTestsMatching "*Integration*"
+    }
     useJUnitPlatform()  
     finalizedBy 'pmdMain'
     finalizedBy jacocoTestReport
+}
+
+task integration(type : Test){
+    filter{
+        includeTestsMatching "*Integration*" 
+    }
+    useJUnitPlatform()
 }
 
 

@@ -16,7 +16,7 @@ COPY src src
 RUN chmod +x ./gradlew
 
 ## Use Gradle to build the application using the RUN stanza
-RUN ./gradlew build
+RUN ./gradlew build -x test
 
 ## need to add a command to run the app here
 ENTRYPOINT ["java","-jar","build/libs/app-geojobsearch-0.1.jar"]
