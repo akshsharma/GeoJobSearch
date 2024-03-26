@@ -37,7 +37,7 @@ const HomePage = () => {
     // this reads in the jobs from the database
     const fetchJobList = () => {
         setLoading(true);
-        fetch('api/jobs')
+        fetch('/api/jobs')
             .then(status)
             .then(res => res.json())
             .then(data => {
@@ -55,7 +55,7 @@ const HomePage = () => {
     // this reads in hard-coded fake jobs
     const fetchDummyJobList = () => {
         setLoading(true);
-        fetch('api/ggs/hardCodedJSON')
+        fetch('/api/ggs/hardCodedJSON')
             .then(status)
             .then(res => res.json())
             .then(data => {
