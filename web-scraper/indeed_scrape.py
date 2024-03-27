@@ -32,6 +32,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 def setup_options():
+    """Setup Options"""
     # Generated with help by ChatGPT4.0
     options = webdriver.ChromeOptions()
 
@@ -52,6 +53,7 @@ def setup_options():
     return options
 
 def setup_driver(options):
+    """Setup driver"""
 
     # Note: The ChromeDriverManager might not be necessary if chromedriver is installed system-wide.
     service = Service("/usr/bin/chromedriver")  # Path to chromedriver
@@ -73,8 +75,9 @@ def setup_driver(options):
 
     return driver
 
-def scrape(driver, page_data, MAX_PAGES):
-    for i in range(MAX_PAGES):
+def scrape(driver, page_data, max_pages):
+    """Scrape data from webpage"""
+    for i in range(max_pages):
         # Try and find clickable card outlines
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable\
@@ -124,7 +127,8 @@ def scrape(driver, page_data, MAX_PAGES):
 
     print('Scraping complete!' + str(len(page_data)) + " pages scraped")
 
-def extract_job_listings(job_listings):
+def extract_job_listings(job_listings, page_data):
+    """Extract job listings"""
     for data in page_data:
         job_data = {"job_title"        : " Check Description ",
                     "job_location"     : " Check Description ",
@@ -157,11 +161,11 @@ def extract_job_listings(job_listings):
 
         return job_listings
 
-options = setup_options()
-driver = setup_driver(options)
+the_options = setup_options()
+the_driver = setup_driver(the_options)
 
 #Page data list
-page_data = []
+the_page_data = []
 
 #This is our web 'driver', our bare-bones web browser
 # driver = webdriver.Remote("http://127.0.0.1:4444",\
@@ -173,7 +177,7 @@ URL = \
 
 # Driver is used to get the URL, think of it like opening a webpage
 # with Chrome without the visual stuff
-driver.get(URL)
+the_driver.get(URL)
 
 # Sleep the program for a few seconds so that the
 # content can be dynamically created by the web-server
@@ -185,13 +189,15 @@ MAX_PAGES = 10
 print("Scraping data from Indeed.com. time estimate: " \
       + str(MAX_PAGES * 17)  + " seconds.")
 
-scrape(driver, page_data, MAX_PAGES)
+scrape(the_driver, the_page_data, MAX_PAGES)
 
-driver.quit()
+the_driver.quit()
 
-job_listings = []
+the_job_listings = []
+
+extract_job_listings(the_job_listings, the_page_data)
 
 with open('indeed_job_listings.json', 'w', encoding='utf-8') as file:
-    json.dump(job_listings, file, ensure_ascii=False, indent=4)
+    json.dump(the_job_listings, file, ensure_ascii=False, indent=4)
 
 print('Data converted to JSON file and saved to drive. (job_listings.json)')
