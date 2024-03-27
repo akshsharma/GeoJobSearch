@@ -48,11 +48,11 @@ def setup_options():
     # User-agent string
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)" \
                         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-    
+
     return options
 
 def setup_driver(options):
-        
+
     # Note: The ChromeDriverManager might not be necessary if chromedriver is installed system-wide.
     service = Service("/usr/bin/chromedriver")  # Path to chromedriver
 
@@ -62,9 +62,12 @@ def setup_driver(options):
     # # Setting us our web-driver, basically a bare-bones web browser without GUI
     # options = webdriver.ChromeOptions()
 
-    # #Adds user agent artifact to mimic actual browser connection (Generated with help by ChatGPT4.0)
-    # options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)" \
-    #                      "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+    # #Adds user agent artifact to mimic actual browser connection
+    # (Generated with help by ChatGPT4.0)
+    # options.add_argument("user-agent=Mozilla/5.0\
+    # (Windows NT 10.0; Win64; x64)" \
+    # "AppleWebKit/537.36 (KHTML, like Gecko)\
+    # Chrome/91.0.4472.124 Safari/537.36")
     # # options.add_argument('--headless')  # Won't create a GUI.
     # service = Service(ChromeDriverManager().install())
 
