@@ -59,4 +59,22 @@ public class JobsControllerTest {
                 .andExpect(jsonPath("$[1].location").value("Dummy Location Two"));
     }
 
+    @Test
+    public void getDummyDataTest() throws Exception {
+        mockMvc.perform(get("/api/ggs/dummyData"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0]").value("one line of data"))
+                .andExpect(jsonPath("$[1]").value("another line of data"))
+                .andExpect(jsonPath("$[2]").value("one final line of data"));
+    }
+
+    @Test
+    public void getHardCodedJSONTest() throws Exception {
+        mockMvc.perform(get("/api/ggs/hardCodedJSON"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.jobs[0].job.job_title").value("Software Engineer"))
+                .andExpect(jsonPath("$.jobs[1].job.job_title").value("Hardware Engineer"))
+                .andExpect(jsonPath("$.jobs[2].job.job_title").value("Tech Support"));
+    }
+
 }
