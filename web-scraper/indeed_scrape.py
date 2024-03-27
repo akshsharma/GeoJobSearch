@@ -78,7 +78,8 @@ def setup_driver(options):
 def scrape(driver, page_data, max_pages):
     """Scrape data from webpage"""
     for i in range(max_pages):
-        i = i
+        j = i
+        j = j + 1
         # Try and find clickable card outlines
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable\
@@ -87,8 +88,8 @@ def scrape(driver, page_data, max_pages):
             li_button_elements = driver.find_elements\
                 (By.CLASS_NAME, "cardOutline") #cardOutline is class name of clickable <li>
         except Exception as e:
-            e = e
             print("Could not find clickable <li> elements on the page. Closing search.")
+            print(e)
             break
 
         if len(li_button_elements) == 0:
@@ -106,6 +107,7 @@ def scrape(driver, page_data, max_pages):
                 print("page saved...")
             except Exception as e:
                 print("Could not click card item")
+                print(e)
 
         # Find next page button and start process again
         try:
@@ -126,6 +128,7 @@ def scrape(driver, page_data, max_pages):
                 time.sleep(random.randint(2,3))
         except Exception as e:
             print('No modal, contuining.')
+            print(e)
 
     print('Scraping complete!' + str(len(page_data)) + " pages scraped")
 
