@@ -27,3 +27,11 @@
     background-image: linear-gradient(to bottom, #282c34 0, #282c34 100%);
     color: white;
 }
+
+/* link doesn't turn blue and underlined */
+.link-style {
+
+    text-decoration: none;
+    color: inherit;
+
+}

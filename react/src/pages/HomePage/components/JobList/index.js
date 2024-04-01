@@ -11,8 +11,7 @@ import './JobList.css';
 const JobList = (props) => {
     console.log(props);
     return <div>
-        <h1>My Job Feed</h1>
-        <p>This is where the list of jobs will go.</p>
+        <h1 className='job-feed-title'>My Job Feed</h1>
         {
             props.list.length === 0 ?
                 <Alert variant='info'>No jobs are available in your area</Alert>
