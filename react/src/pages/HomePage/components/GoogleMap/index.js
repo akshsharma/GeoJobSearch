@@ -17,7 +17,7 @@ function MyComponent() {
     /* adds an ID and API access key (to use Google maps) */
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyCdFAgOOUqRlp4snFaZaqN41Vs5rFEf1kU"
+        googleMapsApiKey: "SECRET"
     })
 
     /* declares the setMap variable to null */
