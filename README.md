@@ -1,4 +1,6 @@
-# CIS*3760 Synthix GeoJobSearch
+# GeoJobSearch
+
+This is a project I worked on during university. It is a indeed style job board that pulls jobs from indeed. I was responsible for the database system and the CI.
 
 ## Local Setup
 
